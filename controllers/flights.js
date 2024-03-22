@@ -16,8 +16,8 @@ const newFlight = (req, res) => {
 // gets all flights from db and renders the view for displaying all the flights
 const index = async (req, res) => {
   try {
-    // get all flights from db
-    const flights = await Flight.find({});
+    // get all flights from db and sort by departure date in ascending order
+    const flights = await Flight.find({}).sort({ departs: 1 });
     // render the flights data
     res.render("flights/index", { flights });
   } catch (err) {
