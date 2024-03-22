@@ -1,0 +1,55 @@
+const Flight = require("../models/flight");
+
+// renders the view for adding a new flight
+const newFlight = (req, res) => {
+  try {
+    // create an in-memory flight with default values
+    const newFlight = new Flight();
+    // render the form and pass to the view
+    res.render("flights/new", { errorMsg: "", newFlight });
+  } catch (err) {
+    // handle errors
+    console.log(err);
+  }
+};
+
+// gets all flights from db and renders the view for displaying all the flights
+const index = async (req, res) => {
+  try {
+    // get all flights from db
+    const flights = await Flight.find({});
+    // render the flights data
+    res.render("flights/index", { flights });
+  } catch (err) {
+    // handle errors
+    console.error(err);
+  }
+};
+
+const create = async (req, res) => {
+  try {
+    // destructure properties from req.body
+    const { airline, airport, flightNo, departs } = req.body;
+    // create new flight object
+    const flight = new Flight({
+      airline,
+      airport,
+      flightNo,
+      departs,
+    });
+    // Save the new flight to the database
+    await flight.save();
+    // redirect to flights index page
+    res.redirect("/flights");
+  } catch (err) {
+    // handle errors
+    console.log(err);
+    res.render("flights/new", { errorMsg: err.message });
+  }
+};
+
+module.exports = {
+  new: newFlight,
+  index,
+  create,
+};
