@@ -1,0 +1,38 @@
+/* import the home css page for global styles */
+@import url('style.css');
+
+.heading {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 20px;
+}
+
+.table td {
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+    /* Change background color on hover */
+    background-color: #f0f0f0;
+}
