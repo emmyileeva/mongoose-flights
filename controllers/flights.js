@@ -25,6 +25,18 @@ const index = async (req, res) => {
     console.error(err);
   }
 };
+// renders the view to show details of a single flight 
+const show = async (req, res) => {
+  try {
+    // get the flight id from the request params
+    const flight = await Flight.findById(req.params.id);
+    // render the flight data
+    res.render("flights/show", { flight });
+  } catch (err) {
+    // handle errors
+    console.error(err);
+  }
+};
 
 const create = async (req, res) => {
   try {
@@ -51,5 +63,6 @@ const create = async (req, res) => {
 module.exports = {
   new: newFlight,
   index,
+  show,
   create,
 };

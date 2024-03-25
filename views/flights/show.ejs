@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<section id="flight-details">
+    <h2>Flight Details</h2>
+    <div>
+        <p>Airline:
+            <%= flight.airline %>
+        </p>
+        <p>Airport:
+            <%= flight.airport %>
+        </p>
+        <p>Flight Number:
+            <%= flight.flightNo %>
+        </p>
+        <p>Departure Date/Time:
+            <%= flight.departs.toLocaleString() %>
+        </p>
+        <h3>Add Destination</h3>
+        <form action="/flights/<%= flight._id %>/details" method="POST">
+            <label for="airport">Airport:</label>
+            <input type="text" id="airport" name="airport" required>
+            <label for="arrivalDateTime">Arrival Date/Time:</label>
+            <input type="datetime-local" id="arrivalDateTime" name="arrivalDateTime" required>
+            <button type="submit">Add Destination</button>
+        </form>
+    </div>
+    </section>
+
+    <%- include('../partials/footer') %>
