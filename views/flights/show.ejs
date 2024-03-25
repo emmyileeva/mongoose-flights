@@ -1,29 +1,42 @@
 <%- include('../partials/header') %>
 
-<section id="flight-details">
-    <h2>Flight Details</h2>
-    <div>
-        <p>Airline:
-            <%= flight.airline %>
-        </p>
-        <p>Airport:
-            <%= flight.airport %>
-        </p>
-        <p>Flight Number:
-            <%= flight.flightNo %>
-        </p>
-        <p>Departure Date/Time:
-            <%= flight.departs.toLocaleString() %>
-        </p>
-        <h3>Add Destination</h3>
-        <form action="/flights/<%= flight._id %>/details" method="POST">
-            <label for="airport">Airport:</label>
-            <input type="text" id="airport" name="airport" required>
-            <label for="arrivalDateTime">Arrival Date/Time:</label>
-            <input type="datetime-local" id="arrivalDateTime" name="arrivalDateTime" required>
-            <button type="submit">Add Destination</button>
-        </form>
-    </div>
+    <section id="flight-details">
+        <h2>Flight Details</h2>
+        <div>
+            <p>Airline:
+                <%= flight.airline %>
+            </p>
+            <p>Airport:
+                <%= flight.airport %>
+            </p>
+            <p>Flight Number:
+                <%= flight.flightNo %>
+            </p>
+            <p>Departure Date/Time:
+                <%= flight.departs.toLocaleString() %>
+            </p>
+            <!-- adding new destination -->
+            <h3>Add destination</h3>
+            <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/details">
+                <label for="airport">Airport:</label>
+                <input type="text" id="airport" name="airport" required>
+                <label for="arrivalDateTime">Arrival Date/Time:</label>
+                <input type="datetime-local" id="arrivalDateTime" name="arrivalDateTime" required>
+                <button type="submit">Submit</button>
+            </form>
+            <!-- display destinations -->
+        <% if (flight.details.length) { %>
+            <ul>
+                <% flight.details.forEach(d=> { %>
+                    <li>Airport: <%= d.airport %>, Arrival Date/Time: <%=
+                                d.arrivalDateTime.toLocaleString() %>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } else { %>
+                <h3>No destinations for this flight</h3>
+                <% } %>
+        </div>
     </section>
 
     <%- include('../partials/footer') %>

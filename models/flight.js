@@ -2,14 +2,16 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const destinationSchema = new Schema(
+const detailsSchema = new Schema(
   {
     airport: {
       type: String,
       enum: ["SFO", "LAX", "JFK", "MIA", "SJC"],
+      required: true,
     },
-    arrival: {
+    arrivalDateTime: {
       type: Date,
+      required: true,
     },
   },
   {
@@ -46,7 +48,7 @@ const flightSchema = new Schema(
       },
     },
     // embedding destinationSchema as subdocuments
-    destinations: [destinationSchema]
+    details: [detailsSchema]
   },
   {
     timestamps: true,
