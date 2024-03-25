@@ -30,10 +30,26 @@ const flightSchema = new Schema(
         return yearLater;
       },
     },
+    // embedding destinationSchema as subdocuments
+    destinations: [destinationSchema]
   },
   {
     timestamps: true,
   }
 );
 
+const destinationSchema = new Schema(
+  {
+    airport: {
+      type: String,
+      enum: ["SFO", "LAX", "JFK", "MIA", "SJC"],
+    },
+    arrival: {
+      type: Date,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 module.exports = mongoose.model("Flight", flightSchema);

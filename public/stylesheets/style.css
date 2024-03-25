@@ -24,7 +24,7 @@ body {
 .middle {
   text-align: center;
   position: relative;
-  color: white;
+  color: #333;
 }
 
 .middle img {
@@ -34,7 +34,7 @@ body {
 
 .middle h2 {
   position: absolute;
-  top: 10%;
+  top: 8%;
   left: 50%;
     /* Center the heading */
   transform: translate(-50%, -50%);
@@ -44,7 +44,7 @@ body {
 
 .middle p {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 50%;
   /* center text */
   transform: translateX(-50%);
