@@ -1,4 +1,5 @@
 const Flight = require("../models/flight");
+const Ticket = require("../models/ticket");
 
 // renders the view for adding a new flight
 const newFlight = (req, res) => {
@@ -30,8 +31,10 @@ const show = async (req, res) => {
   try {
     // get the flight id from the request params
     const flight = await Flight.findById(req.params.id);
+    // get all tickets associated with the flight
+    const tickets = await Ticket.find({ flight: flight._id });
     // render the flight data
-    res.render("flights/show", { flight });
+    res.render("flights/show", { flight, tickets });
   } catch (err) {
     // handle errors
     console.error(err);

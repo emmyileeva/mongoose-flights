@@ -15,6 +15,16 @@
             <p>Departure Date/Time:
                 <%= flight.departs.toLocaleString() %>
             </p>
+            <!-- ticket list -->
+            <h3>Tickets</h3>
+            <ul>
+                <% tickets.forEach(t=> { %>
+                    <li>Seat: <%= t.seat %>, Price: $<%= t.price %>
+                    </li>
+                    <% }); %>
+            </ul>
+            <!-- New Ticket Link -->
+            <a href="/flights/<%= flight._id %>/tickets/new" class="btn btn-primary">New Ticket</a>
             <!-- adding new destination -->
             <h3>Add destination</h3>
             <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/details">
@@ -25,17 +35,16 @@
                 <button type="submit">Submit</button>
             </form>
             <!-- display destinations -->
-        <% if (flight.details.length) { %>
-            <ul>
-                <% flight.details.forEach(d=> { %>
-                    <li>Airport: <%= d.airport %>, Arrival Date/Time: <%=
-                                d.arrivalDateTime.toLocaleString() %>
-                    </li>
-                    <% }); %>
-            </ul>
-            <% } else { %>
-                <h3>No destinations for this flight</h3>
-                <% } %>
+            <% if (flight.details.length) { %>
+                <ul>
+                    <% flight.details.forEach(d=> { %>
+                        <li>Airport: <%= d.airport %>, Arrival Date/Time: <%= d.arrivalDateTime.toLocaleString() %>
+                        </li>
+                        <% }); %>
+                </ul>
+                <% } else { %>
+                    <h3>No destinations for this flight</h3>
+                    <% } %>
         </div>
     </section>
 
