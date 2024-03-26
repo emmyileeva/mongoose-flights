@@ -16,6 +16,7 @@
                 <%= flight.departs.toLocaleString() %>
             </p>
             <!-- ticket list -->
+            <section id="ticket-list">
             <h3>Tickets</h3>
             <ul>
                 <% tickets.forEach(t=> { %>
@@ -23,8 +24,9 @@
                     </li>
                     <% }); %>
             </ul>
+        </section>
             <!-- New Ticket Link -->
-            <a href="/flights/<%= flight._id %>/tickets/new" class="btn btn-primary">New Ticket</a>
+            <a href="/flights/<%= flight._id %>/tickets/new" class="ticket-link">New Ticket</a>
             <!-- adding new destination -->
             <h3>Add destination</h3>
             <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/details">

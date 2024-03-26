@@ -94,3 +94,85 @@ ul {
 li {
     margin-bottom: 10px;
 }
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+#ticket-list {
+    margin-top: 20px;
+}
+
+#ticket-list h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#ticket-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#ticket-list li {
+    margin-bottom: 10px;
+}
+
+.ticket-link {
+    margin-top: 20px;
+}
+
+.ticket-link a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.ticket-link a:hover {
+    background-color: #0056b3;
+}
+
+#new-ticket {
+    margin-top: 20px;
+}
+
+#new-ticket h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#new-ticket form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#new-ticket form label {
+    margin-bottom: 10px;
+}
+
+#new-ticket form input[type="text"],
+#new-ticket form input[type="number"] {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#new-ticket form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#new-ticket form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
